@@ -1,25 +1,25 @@
 import {
-  Controller,
-  Get,
-  Post,
-  Delete,
-  Param,
-  UseFilters,
-  ForbiddenException,
-  ParseIntPipe,
-  DefaultValuePipe,
-  HttpStatus,
-  Query,
   Body,
+  Controller,
+  DefaultValuePipe,
+  Delete,
+  ForbiddenException,
+  Get,
+  HttpStatus,
+  Param,
   ParseBoolPipe,
-  UseInterceptors,
+  ParseIntPipe,
+  Post,
+  Query,
+  UseFilters,
+  //UseInterceptors
 } from '@nestjs/common';
-import { CatsService } from './cat.service';
-import { HttpExceptionFilter } from '../common/exceptions/http-exception.filter';
-import { Cat } from './interfaces/cat.interface';
-import { CreateCatDto } from './dto/create-cat.dto';
 import { Roles } from '../common/decorators/roles.decorator';
+import { HttpExceptionFilter } from '../common/exceptions/http-exception.filter';
 import { LoggingInterceptor } from '../common/interceptors/logging.interceptor';
+import { CatsService } from './cat.service';
+import { CreateCatDto } from './dto/create-cat.dto';
+import { Cat } from './interfaces/cat.interface';
 
 @Controller('cats')
 @UseInterceptors(LoggingInterceptor)
@@ -51,7 +51,6 @@ export class CatsController {
     return this.catsService.findOne(id);
   }
 
-  //TODO: exception response body does not matching what's like on the docs no error message
   @Get('id:id')
   // async findOne(@Param('id', ParseIntPipe) id: number): Promise<string> {
   //   return this.catsService.findOne(id);
@@ -74,13 +73,10 @@ export class CatsController {
   @Post()
   //Attach the role metadata (role is a key, [] is the value) to this action
   @Roles('admin')
-  // TODO: the create() receives Cat interface in the service, no implementation
   async create(@Body() createCatDto: CreateCatDto) {
     this.catsService.create(createCatDto);
   }
 
-  // TODO: why does this exception has low priority than the controller-scoped exception filter.
-  // TODO: this exception extends HttpException other than ExceptionFilter
   @Post('exception')
   async createException() {
     throw new ForbiddenException();

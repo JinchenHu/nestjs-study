@@ -1,11 +1,4 @@
-import {
-  //ExceptionFilter,
-  Catch,
-  ArgumentsHost,
-  //HttpException,
-  //HttpStatus,
-} from '@nestjs/common';
-
+import { ArgumentsHost, Catch } from '@nestjs/common';
 import { BaseExceptionFilter } from '@nestjs/core';
 
 // catch everything
@@ -29,7 +22,6 @@ import { BaseExceptionFilter } from '@nestjs/core';
 //   }
 // }
 
-//TODO: how to define the error message?
 @Catch()
 export class AllExceptionsFilter extends BaseExceptionFilter {
   catch(exception: unknown, host: ArgumentsHost) {
