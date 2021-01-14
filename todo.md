@@ -36,3 +36,14 @@
 TypeORM (*Migration) Nest.JS
 GraphQL - Apollo
 AWS SNS/SQS
+
+
+https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-nodejs
+
+https://trunkbaseddevelopment.com/
+
+https://medium.com/@nirespire/what-is-cicd-concepts-in-continuous-integration-and-deployment-4fe3f6625007
+
+https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/creating-a-composite-run-steps-action
+
+https://dev.to/n3wt0n/github-composite-actions-nest-actions-within-actions-3e5l#:~:text=A%20composite%20run%20steps%20action%20allows%20you%20to%20combine%20multiple,single%20step%20using%20that%20action
